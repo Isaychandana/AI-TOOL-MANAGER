@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> AI Tools Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🔍 AI Tools Manager</h1>
+    <div class="controls">
+      <input type="text" id="search-input" placeholder="Search tools..." oninput="searchTools()" />
+      <div class="filters">
+        <button onclick="filterTools('All')">All</button>
+        <button onclick="filterTools('Chatbot')">Chatbot</button>
+        <button onclick="filterTools('AI Assistant')">AI Assistant</button>
+        <button class="sort-toggle" onclick="toggleSortOrder()"><span id="sort-label">A-Z</span></button>
+        <button class="theme-toggle" onclick="toggleTheme()">😁Bright | 😎 Chill</button>
+        <button onclick="toggleAddForm()">+ Add Tool</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="add-tool-form" style="display:none; padding: 20px;">
+    <input type="text" id="tool-name" placeholder="Name" /><br>
+    <input type="text" id="tool-description" placeholder="Description" /><br>
+    <input type="text" id="tool-logo" placeholder="Logo URL" /><br>
+    <input type="text" id="tool-tags" placeholder="Tags (comma separated)" /><br>
+    <input type="text" id="tool-url" placeholder="Tool URL" /><br>
+    <button onclick="addNewTool()">Add Tool</button>
+  </div>
+  <div id="tool-list"></div>
+
+  <div id="bulk-delete-container" style="display: none; margin-top: 10px;">
+    <button onclick="deleteSelectedTools()">🗑️ Delete Selected</button>
+  </div>
+  
+  <div id="undo-banner" style="display: none;"></div>
+
+  
+  <div id="bulk-delete-container" style="display:none; text-align: center; margin: 20px;">
+    <button onclick="deleteSelectedTools()">🗑️ Delete Selected</button>
+  </div>
+
+  <div id="tool-list" class="grid"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
